@@ -1,3 +1,5 @@
+/** @license MIT License (c) copyright 2015 Volker Möbius */
+
 'use strict';
 
 /**
@@ -23,12 +25,14 @@ module.exports = function () {
 	function getenvFactory(resolver, componentDefinition, wire) {
 		/** @type GetEnvOptions | string */
 		var options = componentDefinition.options;
+		var value;
 		if (typeof options === 'string') {
-			return getenv(options);
+			value = getenv(options);
 		}
 		else if (typeof options === 'object' && options != null) {
-			return getenv(options.variable, options.default);
+			value = getenv(options.variable, options.default);
 		}
+		resolver.resolve(value);
 	}
 
 	return {
