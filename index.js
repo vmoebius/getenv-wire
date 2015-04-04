@@ -18,7 +18,7 @@ module.exports = function () {
 	 */
 	function getenv(variable, defaultValue) {
 		var value = process.env[variable];
-		return value !== 'undefined' ? value : defaultValue;
+		return typeof value !== 'undefined' ? value : defaultValue;
 	}
 
 	//noinspection JSUnusedLocalSymbols
