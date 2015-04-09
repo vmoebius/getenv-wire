@@ -9,6 +9,8 @@ while resolving the wire spec.
 
 The plugin provides a `getenv` wire factory.
 
+The plugin is only applicable in [node.js] server environments!
+
 ## Install
 
 ```sh
@@ -51,7 +53,7 @@ Long form with optional default value
 
 The `getenv` factory doesn't work within the definition of `literal`
 components because the options of `literal` components are not
-further resolved by [wire.js]. This is the intended operation of the built in `literal` factory of [wire.js].  (The same is true for other factory keywords than `getenv` 
+further resolved by [wire.js]. This is the intended operation of the built in `literal` factory of [wire.js].  (The same is true for other factory keywords than `getenv`
 within `literal` components.)
 
 To workaround this stick with direct declaration of object literals without `literal` factory.
@@ -68,3 +70,4 @@ MIT © [Volker Möbius]()
 [daviddm-url]: https://david-dm.org/vmoebius/getenv-wire.svg?theme=shields.io
 [daviddm-image]: https://david-dm.org/vmoebius/getenv-wire
 [wire.js]: https://github.com/cujojs/wire
+[node.js]: https://nodejs.org
