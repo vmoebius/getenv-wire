@@ -2,6 +2,12 @@
 
 > wire.js plugin to get environment variables in wire spec
 
+## Description
+
+Plugin for the [wire.js] IOC container to apply values of environment variables
+while resolving the wire spec.
+
+The plugin provides a `getenv` wire factory.
 
 ## Install
 
@@ -20,7 +26,7 @@ Register plugin in wire.js spec
 ]
 ```
 
-Apply getenv factory in spec
+Apply `getenv` factory in spec
 
 Short form
 
@@ -41,6 +47,15 @@ Long form with optional default value
 }
 ```
 
+## Note
+
+The `getenv` factory doesn't work within the definition of `literal`
+components because the options of `literal` components are not
+further resolved by [wire.js]. This is the intended operation of the built in `literal` factory of [wire.js].  (The same is true for other factory keywords than `getenv` 
+within `literal` components.)
+
+To workaround this stick with direct declaration of object literals without `literal` factory.
+
 ## License
 
 MIT © [Volker Möbius]()
@@ -52,3 +67,4 @@ MIT © [Volker Möbius]()
 [travis-image]: https://travis-ci.org/vmoebius/getenv-wire.svg?branch=master
 [daviddm-url]: https://david-dm.org/vmoebius/getenv-wire.svg?theme=shields.io
 [daviddm-image]: https://david-dm.org/vmoebius/getenv-wire
+[wire.js]: https://github.com/cujojs/wire
